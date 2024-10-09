@@ -1,0 +1,13 @@
+---
+description: "Rust GraphQL Service"
+authors: ["Jimmie Fulton>"]
+languages: []
+frameworks: []
+tags: []
+
+requires:
+  archetect: "2.0.0-ALPHA.15"
+
+components:
+  org-prompts: git@github.com:p6m-dev/org-prompts.archetype.git
+  upstream: git@github.com:archetect-rust/rust-service-graphql.archetype.git

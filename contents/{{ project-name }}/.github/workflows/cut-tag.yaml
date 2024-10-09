@@ -1,0 +1,35 @@
+on:
+  workflow_dispatch:
+    inputs:
+      level:
+        description: The level of the version to bump.
+        required: false
+        default: patch
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+concurrency: deploy-${{'{'}}{ github.ref_name }}
+
+name: 2. Tag & Release
+run-name: Tag & Release by @${{'{'}}{ github.triggering_actor }}
+
+jobs:
+  tag_version:
+    name: Tag Version
+    uses: p6m-dev/github-actions/.github/workflows/cut-tag-rust-service.yaml@main
+    with:
+      LEVEL: ${{'{'}}{ github.event.inputs.level }}
+      MODE: release
+      DOCKER_REGISTRY: p6m-dev.jfrog.io
+      DOCKER_IMAGE_NAME: p6m-studio-docker/applications/${{'{'}}{ github.event.repository.name }}-server
+      DOCKER_CONTEXT: "."
+      DOCKERFILE: ./.platform/docker/external/Dockerfile
+      CARGO_REGISTRY_ALIAS: p6m-studio
+      CARGO_PACKAGES: {{ project_name }}_core {{ project_name }}_server
+    secrets:
+      DOCKER_USERNAME: ${{'{'}}{ secrets.ARTIFACTORY_USERNAME }}
+      DOCKER_PASSWORD: ${{'{'}}{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
+      CARGO_TOKEN: ${{'{'}}{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
