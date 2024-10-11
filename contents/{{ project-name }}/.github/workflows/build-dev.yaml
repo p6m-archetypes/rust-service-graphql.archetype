@@ -12,10 +12,10 @@ jobs:
     with:
       MODE: release
       DOCKER_REGISTRY: p6m-dev.jfrog.io
-      DOCKER_IMAGE_NAME: {{ org-venture-name }}-docker/applications/${{'{'}}{ github.event.repository.name }}-server
+      DOCKER_IMAGE_NAME: {{ org-solution-name }}-docker/applications/${{'{'}}{ github.event.repository.name }}-server
       DOCKER_CONTEXT: "."
       DOCKERFILE: ./.platform/docker/external/Dockerfile
-      CARGO_REGISTRY_ALIAS: {{ org-venture-name }}
+      CARGO_REGISTRY_ALIAS: {{ org-solution-name }}
       CARGO_PACKAGES: {{ project_name }}_core {{ project_name }}_server
     secrets:
       DOCKER_USERNAME: ${{'{'}}{ secrets.ARTIFACTORY_USERNAME }}

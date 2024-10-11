@@ -7,7 +7,7 @@ default-members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-repository = "https://github.com/{{ org-venture-name }}/{{ project-name }}.git"
+repository = "https://github.com/{{ org-solution-name }}/{{ project-name }}.git"
 license = "p6m PROPRIETARY"
 
 [workspace.dependencies]
