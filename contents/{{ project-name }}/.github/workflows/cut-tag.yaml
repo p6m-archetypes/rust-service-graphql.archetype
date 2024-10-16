@@ -23,7 +23,7 @@ jobs:
     with:
       LEVEL: ${{'{'}}{ github.event.inputs.level }}
       MODE: release
-      DOCKER_REGISTRY: p6m-dev.jfrog.io
+      DOCKER_REGISTRY: p6m.jfrog.io
       DOCKER_IMAGE_NAME: p6m-studio-docker/applications/${{'{'}}{ github.event.repository.name }}-server
       DOCKER_CONTEXT: "."
       DOCKERFILE: ./.platform/docker/external/Dockerfile
