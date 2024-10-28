@@ -5,6 +5,8 @@ on:
         description: 'Tag to promote'
         required: true
 
+permissions: write-all
+
 concurrency: promote-${{'{'}}{ inputs.tag }}
 
 name: 4. Promote Tag to Production

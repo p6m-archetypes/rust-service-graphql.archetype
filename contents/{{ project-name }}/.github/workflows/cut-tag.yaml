@@ -11,6 +11,9 @@ on:
           - minor
           - patch
 
+
+permissions: write-all
+
 concurrency: deploy-${{'{'}}{ github.ref_name }}
 
 name: 2. Tag & Release

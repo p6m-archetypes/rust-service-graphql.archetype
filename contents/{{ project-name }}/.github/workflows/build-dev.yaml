@@ -4,6 +4,8 @@ on:
   - push
   - workflow_dispatch
 
+permissions: write-all
+
 concurrency: deploy-${{'{'}}{ github.ref_name }}
   
 jobs:
