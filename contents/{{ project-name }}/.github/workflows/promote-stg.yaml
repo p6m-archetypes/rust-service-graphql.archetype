@@ -20,4 +20,4 @@ jobs:
       tag: ${{'{'}}{ inputs.tag }}
       github-actions-ref: main
     secrets:
-      TOKEN: ${{'{'}}{ secrets.REPOSITORY_PUSH_TOKEN }}
+      TOKEN: ${{'{'}}{ secrets.UPDATE_MANIFEST_TOKEN }}
